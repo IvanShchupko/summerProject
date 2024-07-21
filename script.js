@@ -95,6 +95,8 @@ let mistakesNum = 0
 
 let cards = [first, second, third, fourth, fifth, sixth, sevens, eights]
 let icons = ['./img/appleCat.png', './img/appleCat.png', './img/malinaCat.png', './img/malinaCat.png', './img/orangeCat.png', './img/orangeCat.png', './img/melonCat.png', './img/melonCat.png']
+let winP = icons.length / 2
+let winN = 0
 let numbers = [0,1,2,3,4,5,6,7]
 let num = cards.length
 let used = []
@@ -120,6 +122,10 @@ for(let i = 0; i < cards.length; i++){
 }, '1000') */
 console.log(cardValues)
 
+let win = document.querySelector('.win')
+let lose = document.querySelector('.lose')
+let gameMist = document.querySelector('.game_mist')
+
 mist = 0
 let startBtn = document.querySelector('.start')
 let blur = document.querySelector('.game_blur')
@@ -128,6 +134,7 @@ startBtn.addEventListener('click', function(){
     blur.style.zIndex = '-1'
     startBtn.style.opacity = '0'
     startBtn.style.zIndex = '-1'
+    gameMist.style.opacity = '0'
     mist = document.querySelector(".game_mist-num").value-1
 })
 
@@ -183,6 +190,7 @@ function flip(nume){
 
         cards[nume-1].style.backgroundImage = `url(${cardValues[nume-1]})`
 
+        winN += 1
         firstFlip += 1
         cardColor.push(cardValues[nume-1])
     } else if(cardColor[0] !== cardColor[1]){
@@ -195,8 +203,16 @@ function flip(nume){
         mistakesNum += 1
     }
     if(mistakesNum > mist){
-        alert("You lose")
-        location.reload()
+        blur.style.opacity = '1'
+        blur.style.zIndex = '1'
+        lose.style.opacity = '1'
+        lose.style.zIndex = '1'
+    }
+    if(winN === winP){
+        blur.style.opacity = '1'
+        blur.style.zIndex = '1'
+        win.style.opacity = '1'
+        win.style.zIndex = '1'
     }
 }
 

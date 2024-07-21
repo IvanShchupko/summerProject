@@ -143,12 +143,6 @@ body{
     font-size: 25px;
     width: 70%;
 }
-.about_instr {
-}
-.about_instr-bl {
-}
-.about_instr-text {
-}
 .about_instr_img {
     width: 150px;
     height: 150px;
@@ -165,9 +159,12 @@ body{
 .game_mist {
     display: flex;
     align-items: center;
+    justify-content: space-around;
     color: #fff;
     font-family: "Passion One", sans-serif;
     margin-bottom: 50px;
+    transition: 1s;
+    width: 80%;
 }
 .game_mist-txt {
     font-size: 30px;
@@ -233,6 +230,34 @@ body{
     z-index: 1;
     top: 45%;
 }
+.lose {
+    position: absolute;
+    font-family: "Passion One", sans-serif;
+    border: none;
+    background-color: rgb(89, 62, 103);
+    color: #fff;
+    padding: 15px 45px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 0;
+    opacity: 0;
+    top: 45%;
+    transition: 1s;
+}
+.win {
+    position: absolute;
+    font-family: "Passion One", sans-serif;
+    border: none;
+    background-color: rgb(89, 62, 103);
+    color: #fff;
+    padding: 15px 45px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 0;
+    opacity: 0;
+    top: 45%;
+    transition: 1s;
+}
 
 @media(max-width: 800px) {
     .group_card{
@@ -254,5 +279,9 @@ body{
     .group_card{
         width: 80px;
         height: 80px;
+    }
+    .game_mist-txt {
+        font-size: 25px;
+        text-align: center;
     }
 }
