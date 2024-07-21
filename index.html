@@ -36,23 +36,13 @@
     <div class="about">
         <h2 class="about_head">Memory game</h2>
         <p class="about_info">This is a simple memory game. To win, you need to find all pairs of cards. No more than two mismatched pairs per game are allowed. For a new game, you need to click the Reset button. In the next update, it will be possible to choose the number of cards and second lives.</p>
-        <!-- <div class="about_instr">
-            <div class="about_instr-bl">
-                <p class="about_instr-text"></p>
-                <img src="" alt="" class="about_instr_img">
-            </div>
-            <div class="about_instr-bl">
-                <p class="about_instr-text"></p>
-                <img src="" alt="" class="about_instr_img">
-            </div>
-            <div class="about_instr-bl">
-                <p class="about_instr-text"></p>
-                <img src="" alt="" class="about_instr_img">
-            </div>
-        </div> -->
     </div>
 
     <div class="game_block">
+        <div class="game_mist">
+            <p class="game_mist-txt">How much live do you want to have?</p>
+            <input type="number" class="game_mist-num">
+        </div>
         <div class="group">
             <div class="group_card" id="1"></div>
             <div class="group_card" id="2"></div>
@@ -62,9 +52,11 @@
             <div class="group_card" id="6"></div>
             <div class="group_card" id="7"></div>
             <div class="group_card" id="8"></div>
+            <div class="game_blur"></div>
+            <button class="start">START</button>
+
         </div>
         <button class="reset">RESET</button>
-        <div class="game_blur"></div>
     </div>
 
     <script src="./scroll.js"></script>

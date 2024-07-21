@@ -113,13 +113,23 @@ for(let i = 0; i < cards.length; i++){
     cardValues.push(icons[colorNumber])
     icons.splice(colorNumber,1)
 }
-setTimeout(() => {
+/* setTimeout(() => { */
     for(let i = 0; i < cards.length; i++){
         cards[i].style.backgroundImage = `url(./img/fone.avif)`
-    }
-}, '1000')
+    }/* 
+}, '1000') */
 console.log(cardValues)
 
+mist = 0
+let startBtn = document.querySelector('.start')
+let blur = document.querySelector('.game_blur')
+startBtn.addEventListener('click', function(){
+    blur.style.opacity = '0'
+    blur.style.zIndex = '-1'
+    startBtn.style.opacity = '0'
+    startBtn.style.zIndex = '-1'
+    mist = document.querySelector(".game_mist-num").value-1
+})
 
 
 button.addEventListener('click', function(){
@@ -184,7 +194,7 @@ function flip(nume){
         firstFlip = -1
         mistakesNum += 1
     }
-    if(mistakesNum > 1){
+    if(mistakesNum > mist){
         alert("You lose")
         location.reload()
     }
