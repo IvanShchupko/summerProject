@@ -87,10 +87,11 @@ let eights = document.getElementById('8')
 let button = document.querySelector('.reset')
 
 let firstFlip = -1
-let secondFlip = -1
 let flippedPairs = 0
 let matched = []
 let cardPicPairs = []
+
+let mistakesNum = 0
 
 let cards = [first, second, third, fourth, fifth, sixth, sevens, eights]
 let icons = ['./img/appleCat.png', './img/appleCat.png', './img/malinaCat.png', './img/malinaCat.png', './img/orangeCat.png', './img/orangeCat.png', './img/melonCat.png', './img/melonCat.png']
@@ -108,7 +109,7 @@ for(let i = 0; i < cards.length; i++){
     num += -1
     numbers.splice(colorNumber,1)
     used.push(colorNumber)
-    cards[i].style.backgroundImage = `url${(icons[colorNumber])}`
+    cards[i].style.backgroundImage = `url(${icons[colorNumber]})`
     cardValues.push(icons[colorNumber])
     icons.splice(colorNumber,1)
 }
@@ -116,7 +117,7 @@ setTimeout(() => {
     for(let i = 0; i < cards.length; i++){
         cards[i].style.backgroundImage = `url(./img/fone.avif)`
     }
-}, '2000')
+}, '1000')
 console.log(cardValues)
 
 
@@ -129,12 +130,41 @@ cardColor = []
 cardNumber = []
 
 function flip(nume){
+    /* if(firstFlip === 0){
+        cards[nume-1].style.backgroundImage = `url(${cardValues[nume-1]})`
+
+        firstFlip = 1
+        cardColor.push(cardValues[nume-1])
+        cardNumber.push(nume-1)
+    } else if(firstFlip === 1 && cardNumber[0] !== nume){
+        cards[nume-1].style.backgroundImage = `url(${cardValues[nume-1]})`
+        cardNumber.push(nume)
+        cardColor.push(cardValues[nume-1])
+        firstFlip = 2
+    } else if(firstFlip = 2 && cardColor[0] === cardColor[1]){
+        firstFlip = 0
+        cardColor = []
+        cardNumber = []
+    } else if(firstFlip = 2 && cardColor[0] !== cardColor[1]){
+        cards[cardNumber[0]].style.backgroundImage = `url(./img/fone.avif)`
+        cards[cardNumber[1]].style.backgroundImage = `url(./img/fone.avif)`
+        firstFlip = 0
+        cardColor = []
+        cardNumber = []
+    }
+    else{
+        firstFlip = 1
+    } */
+
     if(firstFlip < 1){
         cards[nume-1].style.backgroundImage = `url(${cardValues[nume-1]})`
 
         firstFlip += 1
         cardColor.push(cardValues[nume-1])
         cardNumber.push(nume-1)
+    } else if(cardNumber[0] === cardNumber[1]){
+        alert("You mustn't cheat!")
+        location.reload()
     } else if(cardColor[0] === cardColor[1]){
         firstFlip = -1
         cardColor = []
@@ -152,6 +182,11 @@ function flip(nume){
         cardColor = []
         cardNumber = []
         firstFlip = -1
+        mistakesNum += 1
+    }
+    if(mistakesNum > 1){
+        alert("You lose")
+        location.reload()
     }
 }
 
