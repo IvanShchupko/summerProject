@@ -1,80 +1,3 @@
-/* let first = document.getElementById('1')
-let second = document.getElementById('2')
-let third = document.getElementById('3')
-let fourth = document.getElementById('4')
-let fifth = document.getElementById('5')
-let sixth = document.getElementById('6')
-let sevens = document.getElementById('7')
-let eights = document.getElementById('8')
-
-let group = document.querySelector('.group')
-
-let cards = [first, second, third, fourth, fifth, sixth, sevens, eights]
-let icons = ['red', 'blue', 'yellow', 'white', 'red', 'blue', 'yellow', 'white']
-let numbers = [0,1,2,3,4,5,6,7]
-let num = cards.length
-let used = []
-let cardValues = []
-
-
-for(let i = 0; i < cards.length; i++){
-    let colorNumber = Math.floor(Math.random() * num)
-    num += -1
-    numbers.splice(colorNumber,1)
-    used.push(colorNumber)
-    cards[i].style.backgroundColor = `${icons[colorNumber]}`
-    cardValues.push(icons[colorNumber])
-    icons.splice(colorNumber,1)
-}
-setTimeout(() => {
-    for(let i = 0; i < cards.length; i++){
-        cards[i].style.backgroundColor = `rgb(92, 156, 92)`
-    }
-}, '2000')
-
-let twoClick = 0
-group.addEventListener('click', function(){
-    twoClick += 1
-    if(twoClick >= 2){
-        setTimeout(() => {
-            for(let i = 0; i < cards.length; i++){
-                cards[i].style.backgroundColor = `rgb(92, 156, 92)`
-            }
-            twoClick = 0
-        }, '100')
-    }
-})
-
-
-first.addEventListener('click', function(){
-    first.style.backgroundColor = `${cardValues[0]}`
-})
-second.addEventListener('click', function(){
-    second.style.backgroundColor = `${cardValues[1]}`
-})
-third.addEventListener('click', function(){
-    third.style.backgroundColor = `${cardValues[2]}`
-})
-fourth.addEventListener('click', function(){
-    fourth.style.backgroundColor = `${cardValues[3]}`
-})
-fifth.addEventListener('click', function(){
-    fifth.style.backgroundColor = `${cardValues[4]}`
-})
-sixth.addEventListener('click', function(){
-    sixth.style.backgroundColor = `${cardValues[5]}`
-})
-sevens.addEventListener('click', function(){
-    sevens.style.backgroundColor = `${cardValues[6]}`
-})
-eights.addEventListener('click', function(){
-    eights.style.backgroundColor = `${cardValues[7]}`
-}) */
-
-
-/* aa = './img/appleCat.png'
-document.body.style.backgroundImage = `url(${aa})` */
-
 let first = document.getElementById('1')
 let second = document.getElementById('2')
 let third = document.getElementById('3')
@@ -105,7 +28,6 @@ let cardValues = []
 
 flippedPairs = 0
 matched = 0
-flippedPairs = 0
 for(let i = 0; i < cards.length; i++){
     let colorNumber = Math.floor(Math.random() * num)
     num += -1
@@ -136,6 +58,13 @@ startBtn.addEventListener('click', function(){
     startBtn.style.zIndex = '-1'
     gameMist.style.opacity = '0'
     mist = document.querySelector(".game_mist-num").value-1
+    /* time = 0
+    while(mistakesNum < mist || winN !== winP){
+        setTimeout(() => {
+            time ++
+            console.log(time)
+        }, '1000')
+    } */
 })
 
 
@@ -147,32 +76,6 @@ cardColor = []
 cardNumber = []
 
 function flip(nume){
-    /* if(firstFlip === 0){
-        cards[nume-1].style.backgroundImage = `url(${cardValues[nume-1]})`
-
-        firstFlip = 1
-        cardColor.push(cardValues[nume-1])
-        cardNumber.push(nume-1)
-    } else if(firstFlip === 1 && cardNumber[0] !== nume){
-        cards[nume-1].style.backgroundImage = `url(${cardValues[nume-1]})`
-        cardNumber.push(nume)
-        cardColor.push(cardValues[nume-1])
-        firstFlip = 2
-    } else if(firstFlip = 2 && cardColor[0] === cardColor[1]){
-        firstFlip = 0
-        cardColor = []
-        cardNumber = []
-    } else if(firstFlip = 2 && cardColor[0] !== cardColor[1]){
-        cards[cardNumber[0]].style.backgroundImage = `url(./img/fone.avif)`
-        cards[cardNumber[1]].style.backgroundImage = `url(./img/fone.avif)`
-        firstFlip = 0
-        cardColor = []
-        cardNumber = []
-    }
-    else{
-        firstFlip = 1
-    } */
-
     if(firstFlip < 1){
         cards[nume-1].style.backgroundImage = `url(${cardValues[nume-1]})`
 
@@ -215,6 +118,7 @@ function flip(nume){
         win.style.zIndex = '1'
     }
 }
+
 
 first.addEventListener('click', function(){
     flip(1)
